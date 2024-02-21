@@ -1,2 +1,2 @@
 # olio-ohjelmointi
-Olio-ohjelmoinnin kurssin kotitehtävät
+**Olio-ohjelmoinnin** kurssin kotitehtävät
