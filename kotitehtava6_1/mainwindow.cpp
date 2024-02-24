@@ -2,13 +2,10 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), count(0)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    // Yhdistä napit slotteihin
-    connect(ui->countButton, &QPushButton::clicked, this, &MainWindow::onCountClicked);
-    connect(ui->resetButton, &QPushButton::clicked, this, &MainWindow::onResetClicked);
 }
 
 MainWindow::~MainWindow()
@@ -16,16 +13,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::onCountClicked()
+void MainWindow::on_pushCount_clicked()
 {
-    // Kasvata laskuria ja päivitä LineEdit
-    count++;
-    ui->lineEdit->setText(QString::number(count));
+    x++;
+    QString s = QString::number(x);
+    ui->lineEdit->setText(s);
+
+
+    qDebug()<<"Count painettu ";
+
 }
 
-void MainWindow::onResetClicked()
+
+void MainWindow::on_pushReset_clicked()
 {
-    // Nollaa laskuri ja päivitä LineEdit
-    count = 0;
-    ui->lineEdit->setText(QString::number(count));
+    QString s = QString::number(x=0);
+    ui->lineEdit->setText(s);
+
+    qDebug()<<"Reset painettu ";
 }
+
